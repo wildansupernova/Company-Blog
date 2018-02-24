@@ -14,10 +14,13 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
+    //$arr = json_decode($request->user(),true);
+    //return $arr['name'];
     return $request->user();
+    //return Auth::guard('api')->user();
 });
 
 
 Route::get('products', function () {
-    return response()->json(['productId' => 1], 200);
+    return response()->json(['productId' => [1,2],'lol' =>1], 200);
 });
